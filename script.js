@@ -1,282 +1,228 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// ARCADEX.EXE GAME COLLECTION
 
-html {
-    scroll-behavior: smooth;
-}
+const categories = [
+    { name: "Action", icon: "⚔️" },
+    { name: "Adventure", icon: "🗺️" },
+    { name: "Racing", icon: "🏎️" },
+    { name: "Puzzle", icon: "🧩" },
+    { name: "Sports", icon: "⚽" },
+    { name: "Arcade", icon: "🕹️" },
+    { name: "Strategy", icon: "♟️" },
+    { name: "Simulation", icon: "🚀" },
+    { name: "Horror", icon: "👻" },
+    { name: "Casual", icon: "🎯" }
+];
 
-body {
-    background: #090b18;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-/* HEADER /
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 22px 6%;
-    background: #101329;
-    border-bottom: 1px solid #292e50;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.logo {
-    font-size: 27px;
-    font-weight: 900;
-    letter-spacing: -1px;
-}
-
-.logo span {
-    color: #a855f7;
-}
-
-.logo small {
-    color: #00d9ff;
-    font-size: 14px;
-}
-
-nav {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: #c7c9dc;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #00d9ff;
-}
-
-#search {
-    padding: 12px 16px;
-    border-radius: 25px;
-    border: 1px solid #42486b;
-    background: #191e38;
-    color: white;
-    outline: none;
-}
-
-/ HERO SECTION /
-
-.hero {
-    padding: 110px 8%;
-    min-height: 480px;
-    background:
-        radial-gradient(circle at 80% 30%, #50218c 0%, transparent 35%),
-        radial-gradient(circle at 20% 90%, #073c70 0%, transparent 35%),
-        linear-gradient(120deg, #101329, #191338);
-}
-
-.tagline {
-    color: #00d9ff;
-    font-size: 13px;
-    letter-spacing: 4px;
-    margin-bottom: 25px;
-    font-weight: bold;
-}
-
-.hero h1 {
-    font-size: clamp(40px, 7vw, 76px);
-    line-height: 1.1;
-    font-weight: 900;
-}
-
-.hero h1 span {
-    background: linear-gradient(90deg, #a855f7, #00d9ff, #ff7b32);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.hero > p:not(.tagline) {
-    color: #c3c5d9;
-    margin-top: 22px;
-    font-size: 17px;
-    line-height: 1.6;
-}
-
-.play-button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 16px 27px;
-    background: linear-gradient(90deg, #a855f7, #536dfe);
-    border-radius: 8px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.play-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px #a855f7;
-}
-
-/ GENERAL SECTIONS /
-
-section:not(.hero) {
-    padding: 65px 6%;
-}
-
-section h2 {
-    font-size: 25px;
-    margin-bottom: 30px;
-}
-
-/ CATEGORY GRID /
-
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 18px;
-}
-
-.category-card {
-    padding: 28px 15px;
-    border-radius: 14px;
-    text-align: center;
-    background: linear-gradient(135deg, #252c55, #171a32);
-    border: 1px solid #343c68;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.category-card:hover {
-    transform: translateY(-7px);
-    border-color: #00d9ff;
-    box-shadow: 0 0 20px #00d9ff33;
-}
-
-.category-card .icon {
-    font-size: 36px;
-    margin-bottom: 12px;
-}
-
-/ GAME CARDS /
-
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 23px;
-}
-
-.game-card {
-    background: #171b32;
-    border: 1px solid #2c3456;
-    border-radius: 14px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.game-card:hover {
-    transform: translateY(-8px);
-    border-color: #a855f7;
-    box-shadow: 0 8px 30px #a855f733;
-}
-
-.game-image {
-    height: 145px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-}
-
-.game-info {
-    padding: 17px;
-}
-
-.game-info h3 {
-    font-size: 17px;
-    margin-bottom: 8px;
-}
-
-.game-info p {
-    color: #a6abc5;
-    font-size: 13px;
-    margin-bottom: 15px;
-}
-
-.game-info a {
-    display: block;
-    text-align: center;
-    padding: 11px;
-    border-radius: 7px;
-    background: #7738d4;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.game-info a:hover {
-    background: #00a9d6;
-}
-
-/ FOOTER /
-
-footer {
-    background: #101329;
-    text-align: center;
-    padding: 40px 15px;
-    border-top: 1px solid #292e50;
-    color: #a6abc5;
-}
-
-footer h2 {
-    color: white;
-    margin-bottom: 12px;
-}
-
-footer h2 span {
-    color: #a855f7;
-}
-
-footer p {
-    margin: 10px;
-    font-size: 13px;
-}
-
-/ MOBILE RESPONSIVENESS */
-
-@media (max-width: 650px) {
-
-    header {
-        justify-content: center;
-        text-align: center;
+const games = [
+    {
+        name: "Space Runner",
+        category: "Adventure",
+        icon: "🚀",
+        description: "Explore the galaxy and dodge obstacles.",
+        color: "linear-gradient(135deg,#5425a8,#071c54)",
+        trending: true,
+        isNew: true,
+        id: "space-runner"
+    },
+    {
+        name: "Street Racer",
+        category: "Racing",
+        icon: "🏎️",
+        description: "Race through exciting city tracks.",
+        color: "linear-gradient(135deg,#ff512f,#dd2476)",
+        trending: true,
+        isNew: false,
+        id: "street-racer"
+    },
+    {
+        name: "Brain Master",
+        category: "Puzzle",
+        icon: "🧠",
+        description: "Challenge your brain with puzzles.",
+        color: "linear-gradient(135deg,#11998e,#38ef7d)",
+        trending: true,
+        isNew: true,
+        id: "brain-master"
+    },
+    {
+        name: "Football Stars",
+        category: "Sports",
+        icon: "⚽",
+        description: "Show your football skills.",
+        color: "linear-gradient(135deg,#134e5e,#71b280)",
+        trending: true,
+        isNew: false,
+        id: "football-stars"
+    },
+    {
+        name: "Zombie Escape",
+        category: "Action",
+        icon: "🧟",
+        description: "Survive an exciting zombie adventure.",
+        color: "linear-gradient(135deg,#232526,#414345)",
+        trending: true,
+        isNew: true,
+        id: "zombie-escape"
+    },
+    {
+        name: "Candy Match",
+        category: "Casual",
+        icon: "🍬",
+        description: "Match colourful candies and earn points.",
+        color: "linear-gradient(135deg,#ec008c,#fc6767)",
+        trending: false,
+        isNew: true,
+        id: "candy-match"
+    },
+    {
+        name: "Pixel Fighter",
+        category: "Arcade",
+        icon: "🥊",
+        description: "Enter the pixel fighting arena.",
+        color: "linear-gradient(135deg,#654ea3,#eaafc8)",
+        trending: true,
+        isNew: false,
+        id: "pixel-fighter"
+    },
+    {
+        name: "Kingdom Builder",
+        category: "Strategy",
+        icon: "🏰",
+        description: "Build and manage your kingdom.",
+        color: "linear-gradient(135deg,#c79036,#493240)",
+        trending: false,
+        isNew: true,
+        id: "kingdom-builder"
+    },
+    {
+        name: "Flight Simulator",
+        category: "Simulation",
+        icon: "✈️",
+        description: "Experience the world of flying.",
+        color: "linear-gradient(135deg,#2193b0,#6dd5ed)",
+        trending: false,
+        isNew: false,
+        id: "flight-simulator"
+    },
+    {
+        name: "Mystery Mansion",
+        category: "Horror",
+        icon: "🏚️",
+        description: "Explore a mysterious abandoned mansion.",
+        color: "linear-gradient(135deg,#41295a,#2f0743)",
+        trending: false,
+        isNew: true,
+        id: "mystery-mansion"
+    },
+    {
+        name: "Treasure Quest",
+        category: "Adventure",
+        icon: "💎",
+        description: "Discover hidden treasures.",
+        color: "linear-gradient(135deg,#f7971e,#ffd200)",
+        trending: false,
+        isNew: false,
+        id: "treasure-quest"
+    },
+    {
+        name: "Speed Drift",
+        category: "Racing",
+        icon: "🏁",
+        description: "Master the art of drifting.",
+        color: "linear-gradient(135deg,#00c6ff,#0072ff)",
+        trending: true,
+        isNew: true,
+        id: "speed-drift"
     }
+];
 
-    nav {
-        justify-content: center;
-        gap: 15px;
-    }
+// DISPLAY CATEGORIES
 
-    .hero {
-        padding: 80px 7%;
-    }
+const categoryGrid = document.getElementById("category-grid");
 
-    .game-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
+categories.forEach(category => {
+    categoryGrid.innerHTML += `
+        <div class="category-card"
+             onclick="filterCategory('${category.name}')">
+            <div class="icon">${category.icon}</div>
+            <h3>${category.name}</h3>
+        </div>
+    `;
+});
 
-    .game-image {
-        height: 110px;
-        font-size: 45px;
-    }
+// DISPLAY GAME CARDS
 
-    .game-info {
-        padding: 12px;
-    }
+function createGameCard(game) {
+    return `
+        <div class="game-card">
+            <div class="game-image"
+                 style="background:${game.color}">
+                ${game.icon}
+            </div>
+
+            <div class="game-info">
+                <h3>${game.name}</h3>
+                <p>${game.description}</p>
+                <a href="game.html?game=${game.id}">
+                    PLAY NOW →
+                </a>
+            </div>
+        </div>
+    `;
 }
+
+// DISPLAY TRENDING GAMES
+
+const trendingContainer =
+    document.getElementById("trending-games");
+
+const newContainer =
+    document.getElementById("new-games-grid");
+
+function displayGames(list) {
+    trendingContainer.innerHTML =
+        list.filter(game => game.trending)
+            .map(createGameCard).join("");
+
+    newContainer.innerHTML =
+        list.filter(game => game.isNew)
+            .map(createGameCard).join("");
+}
+
+displayGames(games);
+
+// CATEGORY FILTER
+
+function filterCategory(category) {
+
+    const filtered = games.filter(
+        game => game.category === category
+    );
+
+    trendingContainer.innerHTML =
+        filtered.length
+        ? filtered.map(createGameCard).join("")
+        : "<p>No games found.</p>";
+
+    newContainer.innerHTML = "";
+    
+    document.getElementById("trending")
+        .scrollIntoView({ behavior: "smooth" });
+}
+
+// SEARCH FUNCTION
+
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", function() {
+
+    const searchTerm = this.value.toLowerCase();
+
+    const filtered = games.filter(game =>
+        game.name.toLowerCase().includes(searchTerm) ||
+        game.category.toLowerCase().includes(searchTerm) ||
+        game.description.toLowerCase().includes(searchTerm)
+    );
+
+    displayGames(filtered);
+});
